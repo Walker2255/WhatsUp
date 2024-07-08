@@ -7,10 +7,19 @@ import com.azimjonc.projects.data.remote.auth.AuthFirebaseImpl
 import com.azimjonc.projects.data.repo.AuthRepositoryImpl
 import com.azimjonc.projects.domain.repo.AuthRepository
 import com.azimjonc.projects.domain.usecase.auth.SendSmsCodeUseCase
+import com.azimjonc.projects.presentation.screens.main.MainViewModel
 import com.azimjonc.projects.presentation.screens.phone.PhoneViewModel
+import com.github.terrakok.cicerone.Cicerone
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import kotlin.math.sin
+
+private val cicerone = Cicerone.create()
+
+val appModule = module {
+    single { cicerone.router }
+    single { cicerone.getNavigatorHolder() }
+}
 
 val repositoryModule = module {
     single<AuthRepository> { AuthRepositoryImpl(get()) }
@@ -30,4 +39,5 @@ val remoteModule = module {
 
 val viewModelModule = module {
     viewModel { PhoneViewModel(get()) }
+    viewModel { MainViewModel(get()) }
 }

@@ -50,8 +50,10 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // koin
-    implementation ("io.insert-koin:koin-android:3.5.4")
+    implementation("io.insert-koin:koin-android:3.5.4")
 
+    // cicerone
+    implementation("com.github.terrakok:cicerone:7.1")
 
 
 }
