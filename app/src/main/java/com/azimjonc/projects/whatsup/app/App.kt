@@ -5,7 +5,7 @@ import com.azimjonc.projects.whatsup.di.appModule
 import com.azimjonc.projects.whatsup.di.localModule
 import com.azimjonc.projects.whatsup.di.remoteModule
 import com.azimjonc.projects.whatsup.di.repositoryModule
-import com.azimjonc.projects.whatsup.di.usecaseModule
+import com.azimjonc.projects.whatsup.di.useCaseModule
 import com.azimjonc.projects.whatsup.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -22,7 +22,7 @@ class App : Application() {
             modules(
                 appModule,
                 repositoryModule,
-                usecaseModule,
+                useCaseModule,
                 localModule,
                 remoteModule,
                 viewModelModule

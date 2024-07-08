@@ -56,4 +56,9 @@ dependencies {
     implementation("com.github.terrakok:cicerone:7.1")
 
 
+    // realm
+    implementation ("io.realm.kotlin:library-base:1.16.0")
+
+
+
 }
