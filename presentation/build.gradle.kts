@@ -30,9 +30,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
+
+    // rxkotlin
+    implementation("io.reactivex.rxjava2:rxkotlin:3.0.1")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+
+
+
     implementation(project(":domain"))
 
     implementation(libs.androidx.core.ktx)
