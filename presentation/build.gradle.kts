@@ -60,4 +60,9 @@ dependencies {
     // cicerone
     implementation("com.github.terrakok:cicerone:7.1")
 
+
+    //splash screen
+    implementation ("androidx.core:core-splashscreen:1.0.0")
+
+
 }
