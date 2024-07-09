@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id ("io.realm.kotlin")
+    id("io.realm.kotlin")
     alias(libs.plugins.google.gms.google.services)
 
 }
@@ -48,10 +48,15 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // realm
-    implementation ("io.realm.kotlin:library-base:1.16.0")
+    implementation("io.realm.kotlin:library-base:1.16.0")
 
     // rxkotlin
     implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+
+
+    // firebase auth
+    implementation("com.google.firebase:firebase-auth-ktx:23.0.0")
+
 
 }

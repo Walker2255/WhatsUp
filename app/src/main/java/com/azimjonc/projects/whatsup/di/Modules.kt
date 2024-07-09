@@ -12,6 +12,7 @@ import com.azimjonc.projects.data.repo.SettingsRepositoryImpl
 import com.azimjonc.projects.domain.repo.AuthRepository
 import com.azimjonc.projects.domain.repo.SettingsRepository
 import com.azimjonc.projects.domain.usecase.auth.SendSmsCodeUseCase
+import com.azimjonc.projects.domain.usecase.auth.VerifyCodeUseCase
 import com.azimjonc.projects.domain.usecase.settings.GetOnboardedUseCase
 import com.azimjonc.projects.domain.usecase.settings.OnboardedUseCase
 import com.azimjonc.projects.presentation.screens.main.MainViewModel
@@ -43,6 +44,7 @@ val useCaseModule = module {
     single { SendSmsCodeUseCase(get()) }
     single { OnboardedUseCase(get()) }
     single { GetOnboardedUseCase(get()) }
+    single { VerifyCodeUseCase(get()) }
 }
 
 val localModule = module {
