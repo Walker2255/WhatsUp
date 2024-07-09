@@ -55,14 +55,17 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     // koin
-    implementation ("io.insert-koin:koin-android:3.5.4")
+    implementation("io.insert-koin:koin-android:3.5.4")
 
     // cicerone
     implementation("com.github.terrakok:cicerone:7.1")
 
 
     //splash screen
-    implementation ("androidx.core:core-splashscreen:1.0.0")
+    implementation("androidx.core:core-splashscreen:1.0.0")
+
+    // OTp
+    implementation ("com.github.aabhasr1:OtpView:v1.1.2-ktx") // kotlin
 
 
 }

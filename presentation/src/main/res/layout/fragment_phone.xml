@@ -1,8 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#555">
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="64dp"
+        android:src="@drawable/ic_splash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/fragment_sign_in_account"
+        app:layout_constraintBottom_toTopOf="@+id/phoneText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <TextView
+        android:id="@+id/phoneText"
+        style="@style/TextAppearance.MaterialComponents.Subtitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/fragment_phone_number"
+        app:layout_constraintBottom_toTopOf="@+id/phone"
+        app:layout_constraintStart_toStartOf="@+id/phone" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_edit_text"
+        android:drawableStart="@drawable/ic_phone"
+        android:drawablePadding="16dp"
+        android:drawableTint="?attr/colorPrimary"
+        android:hint="@string/fragment_phone_number"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/signIn" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signIn"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/fragment_phone_sign_in"
+        app:cornerRadius="32dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
