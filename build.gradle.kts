@@ -4,5 +4,6 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android) apply false
     alias(libs.plugins.android.library) apply false
     id ("io.realm.kotlin") version ("1.16.0") apply false
+    alias(libs.plugins.google.gms.google.services) apply false
 
 }

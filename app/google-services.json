@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "848521865364",
+    "project_id": "chat-ai-4239b",
+    "storage_bucket": "chat-ai-4239b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848521865364:android:f1298c9b08453d53982c81",
+        "android_client_info": {
+          "package_name": "com.azimjonc.projects.whatsup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848521865364-pfqqebg676i1cgortjk21uhg35oe7ki7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB37EbBUeeoELnDqFyGS598_84b0y2TSoY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "848521865364-pfqqebg676i1cgortjk21uhg35oe7ki7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
