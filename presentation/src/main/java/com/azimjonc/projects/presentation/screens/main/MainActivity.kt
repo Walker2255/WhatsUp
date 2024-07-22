@@ -7,6 +7,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.FragmentActivity
+import com.azimjonc.projects.domain.model.ActivityHolder
 import com.azimjonc.projects.presentation.R
 import com.azimjonc.projects.presentation.databinding.ActivityMainBinding
 import com.github.terrakok.cicerone.Navigator
@@ -21,15 +22,20 @@ class MainActivity : FragmentActivity() {
     private val naviagator = AppNavigator(this, R.id.container)
     private val navigatorHolder: NavigatorHolder by inject()
     private val viewModel: MainViewModel by viewModel()
+    private val activityHolder: ActivityHolder by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        viewModel
+
         installSplashScreen()
+
+        activityHolder.activity = this
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        viewModel
 
     }
 

@@ -9,12 +9,14 @@ import com.azimjonc.projects.data.remote.auth.AuthFirebase
 import com.azimjonc.projects.data.remote.auth.AuthFirebaseImpl
 import com.azimjonc.projects.data.repo.AuthRepositoryImpl
 import com.azimjonc.projects.data.repo.SettingsRepositoryImpl
+import com.azimjonc.projects.domain.model.ActivityHolder
 import com.azimjonc.projects.domain.repo.AuthRepository
 import com.azimjonc.projects.domain.repo.SettingsRepository
 import com.azimjonc.projects.domain.usecase.auth.SendSmsCodeUseCase
 import com.azimjonc.projects.domain.usecase.auth.VerifyCodeUseCase
-import com.azimjonc.projects.domain.usecase.settings.GetOnboardedUseCase
+import com.azimjonc.projects.domain.usecase.settings.GetInitialScreenUseCase
 import com.azimjonc.projects.domain.usecase.settings.OnboardedUseCase
+import com.azimjonc.projects.presentation.screens.code.CodeViewModel
 import com.azimjonc.projects.presentation.screens.main.MainViewModel
 import com.azimjonc.projects.presentation.screens.onboarding.OnboardingViewModel
 import com.azimjonc.projects.presentation.screens.phone.PhoneViewModel
@@ -28,11 +30,11 @@ private val cicerone = Cicerone.create()
 
 val config = RealmConfiguration.Builder(schema = setOf(SettingsRealm::class)).build()
 
-
 val appModule = module {
     single { cicerone.router }
     single { cicerone.getNavigatorHolder() }
     single { Realm.open(config) }
+    single { ActivityHolder() }
 }
 
 val repositoryModule = module {
@@ -43,7 +45,7 @@ val repositoryModule = module {
 val useCaseModule = module {
     single { SendSmsCodeUseCase(get()) }
     single { OnboardedUseCase(get()) }
-    single { GetOnboardedUseCase(get()) }
+    single { GetInitialScreenUseCase(get(), get()) }
     single { VerifyCodeUseCase(get()) }
 }
 
@@ -53,11 +55,12 @@ val localModule = module {
 }
 
 val remoteModule = module {
-    single<AuthFirebase> { AuthFirebaseImpl() }
+    single<AuthFirebase> { AuthFirebaseImpl(get()) }
 }
 
 val viewModelModule = module {
-    viewModel { PhoneViewModel(get()) }
+    viewModel { PhoneViewModel(get(), get()) }
     viewModel { MainViewModel(get(), get()) }
     viewModel { OnboardingViewModel(get(), get()) }
+    viewModel { CodeViewModel(get(), get()) }
 }

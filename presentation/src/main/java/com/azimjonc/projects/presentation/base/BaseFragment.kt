@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.core.Observable
 
 abstract class BaseFragment<VB : ViewBinding>(
@@ -31,7 +32,13 @@ abstract class BaseFragment<VB : ViewBinding>(
     }
 
     fun <T : Any, R : Any> Observable<T>.observe(observer: (R) -> Unit, mapper: (T) -> R) {
-        map(mapper).distinctUntilChanged().doOnNext(observer)
+        map(mapper).distinctUntilChanged().doOnNext(observer).subscribe()
     }
+
+    fun snackbar(message: String) {
+        Snackbar.make(binding.root, message, Snackbar.LENGTH_SHORT).show()
+    }
+
+    fun snackbar(messageId: Int) = snackbar(getString(messageId))
 
 }
