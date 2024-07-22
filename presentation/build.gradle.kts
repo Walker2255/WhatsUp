@@ -65,7 +65,10 @@ dependencies {
     implementation("androidx.core:core-splashscreen:1.0.0")
 
     // OTp
-    implementation ("com.github.aabhasr1:OtpView:v1.1.2-ktx") // kotlin
+    implementation("com.github.aabhasr1:OtpView:v1.1.2-ktx") // kotlin
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.14.2")
 
 
 }
