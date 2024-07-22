@@ -7,6 +7,8 @@ import com.azimjonc.projects.data.local.user.UserStorage
 import com.azimjonc.projects.data.local.user.UserStorageImpl
 import com.azimjonc.projects.data.remote.auth.AuthFirebase
 import com.azimjonc.projects.data.remote.auth.AuthFirebaseImpl
+import com.azimjonc.projects.data.remote.users.UsersFirestore
+import com.azimjonc.projects.data.remote.users.UsersFirestoreImpl
 import com.azimjonc.projects.data.repo.AuthRepositoryImpl
 import com.azimjonc.projects.data.repo.SettingsRepositoryImpl
 import com.azimjonc.projects.domain.model.ActivityHolder
@@ -38,7 +40,7 @@ val appModule = module {
 }
 
 val repositoryModule = module {
-    single<AuthRepository> { AuthRepositoryImpl(get()) }
+    single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
 }
 
@@ -56,6 +58,7 @@ val localModule = module {
 
 val remoteModule = module {
     single<AuthFirebase> { AuthFirebaseImpl(get()) }
+    single<UsersFirestore> { UsersFirestoreImpl() }
 }
 
 val viewModelModule = module {
