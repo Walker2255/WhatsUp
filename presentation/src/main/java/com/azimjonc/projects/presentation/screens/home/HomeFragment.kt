@@ -17,7 +17,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::infl
         viewModel.state.observe(::rednderLoading){it.loading}
         viewModel.state.observe(::rednderError){it.error}
 
-
     }
 
     private fun rednderError(error: Boolean) {

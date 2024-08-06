@@ -7,10 +7,12 @@ import com.azimjonc.projects.data.local.user.UserStorage
 import com.azimjonc.projects.data.local.user.UserStorageImpl
 import com.azimjonc.projects.data.remote.auth.AuthFirebase
 import com.azimjonc.projects.data.remote.auth.AuthFirebaseImpl
+import com.azimjonc.projects.data.remote.messages.MessagesFirestore
+import com.azimjonc.projects.data.remote.messages.MessagesFirestoreImpl
 import com.azimjonc.projects.data.remote.users.UsersFirestore
 import com.azimjonc.projects.data.remote.users.UsersFirestoreImpl
 import com.azimjonc.projects.data.repo.AuthRepositoryImpl
-import com.azimjonc.projects.data.repo.ChatRepositoyrImpl
+import com.azimjonc.projects.data.repo.ChatRepositoryImpl
 import com.azimjonc.projects.data.repo.SettingsRepositoryImpl
 import com.azimjonc.projects.domain.model.ActivityHolder
 import com.azimjonc.projects.domain.repo.AuthRepository
@@ -19,6 +21,8 @@ import com.azimjonc.projects.domain.repo.SettingsRepository
 import com.azimjonc.projects.domain.usecase.auth.SendSmsCodeUseCase
 import com.azimjonc.projects.domain.usecase.auth.VerifyCodeUseCase
 import com.azimjonc.projects.domain.usecase.chat.GetChatsUseCase
+import com.azimjonc.projects.domain.usecase.chat.GetMessagesUseCase
+import com.azimjonc.projects.domain.usecase.chat.SendMessagesUseCase
 import com.azimjonc.projects.domain.usecase.settings.GetInitialScreenUseCase
 import com.azimjonc.projects.domain.usecase.settings.OnboardedUseCase
 import com.azimjonc.projects.presentation.screens.code.CodeViewModel
@@ -46,7 +50,7 @@ val appModule = module {
 val repositoryModule = module {
     single<AuthRepository> { AuthRepositoryImpl(get(), get()) }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
-    single<ChatRepository> { ChatRepositoyrImpl(get()) }
+    single<ChatRepository> { ChatRepositoryImpl(get(), get(), get()) }
 }
 
 val useCaseModule = module {
@@ -55,6 +59,8 @@ val useCaseModule = module {
     single { GetInitialScreenUseCase(get(), get()) }
     single { VerifyCodeUseCase(get()) }
     single { GetChatsUseCase(get()) }
+    single { GetMessagesUseCase(get()) }
+    single { SendMessagesUseCase(get()) }
 }
 
 val localModule = module {
@@ -65,6 +71,7 @@ val localModule = module {
 val remoteModule = module {
     single<AuthFirebase> { AuthFirebaseImpl(get()) }
     single<UsersFirestore> { UsersFirestoreImpl() }
+    single<MessagesFirestore> { MessagesFirestoreImpl() }
 }
 
 val viewModelModule = module {
